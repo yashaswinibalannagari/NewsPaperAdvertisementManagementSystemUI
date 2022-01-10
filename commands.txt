@@ -1,0 +1,3 @@
+C:\Users\AGUNUKUL\AppData\Roaming\npm\ng new MyApp
+C:\Users\AGUNUKUL\AppData\Roaming\npm\ng serve -o
+C:\Users\AGUNUKUL\AppData\Roaming\npm\ng g c Home
