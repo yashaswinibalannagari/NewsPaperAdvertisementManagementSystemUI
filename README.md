@@ -1,0 +1,2 @@
+# NewsPaperAdvertisementManagementSystemUI
+Angular Front-end for NewsPaperAdvertisementManagementSystem
