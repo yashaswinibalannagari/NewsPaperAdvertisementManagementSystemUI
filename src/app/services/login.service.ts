@@ -7,6 +7,7 @@ import { User } from '../shared/User';
 import { map } from 'rxjs';
 import { Token } from '../shared/token';
 import { Router } from '@angular/router';
+import { Register } from '../shared/register';
 @Injectable({
   providedIn: 'root'
 })
@@ -27,6 +28,17 @@ export class LoginService {
         return result;
       })
       );
+
+  }
+
+  signUp(userRegister: Register): Observable<boolean> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      })
+    }
+    return this.http.post<boolean>(baseurl + 'SignUp', userRegister, httpOptions)
+      .pipe(catchError(this.processHTTPMsgService.handleError));
 
   }
 

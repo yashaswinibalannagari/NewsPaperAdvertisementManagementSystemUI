@@ -33,6 +33,7 @@ import { ProcessHttpmsgService } from './services/process-httpmsg.service';
 import { LoginService } from './services/login.service';
 import { AdminComponent } from './admin/admin.component';
 import { ClientComponent } from './client/client.component';
+import { RegisterComponent } from './register/register.component';
 
 export function tokenGetter() {
   return localStorage.getItem("access_token");
@@ -49,7 +50,8 @@ export function tokenGetter() {
     ContactComponent,
     FaqsComponent,
     AdminComponent,
-    ClientComponent
+    ClientComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -78,12 +80,16 @@ export function tokenGetter() {
 
   ],
   providers: [
+
     ProcessHttpmsgService,
     LoginService,
-    AuthGuard
+    AuthGuard,
+
   ],
   entryComponents: [
-    LoginComponent
+
+    LoginComponent,
+    RegisterComponent
   ],
   bootstrap: [AppComponent]
 })

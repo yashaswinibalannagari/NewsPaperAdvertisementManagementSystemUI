@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { LoginComponent } from '../login/login.component';
+import { RegisterComponent } from '../register/register.component';
 import { LoginService } from '../services/login.service';
 import { Token } from '../shared/token';
 
@@ -19,6 +20,11 @@ export class HeaderComponent implements OnInit {
   }
   openLoginForm() {
     this.dialog.open(LoginComponent, { width: '500px', height: '450px' });
+  }
+
+
+  openSignupForm() {
+    this.dialog.open(RegisterComponent, { width: '500px', height: '570px' });
   }
   // Logout() {
   //   this.loginService.logout();

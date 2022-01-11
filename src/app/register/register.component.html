@@ -1,0 +1,63 @@
+<div *ngIf="!successRegistration">
+    <mat-toolbar color="accent">
+        Register
+        <span class="flex-spacer"></span>
+        <button mat-button mat-dialog-close>&times;</button>
+    </mat-toolbar>
+
+    <form novalidate #registerform="ngForm" (ngSubmit)="onSubmit()">
+        <mat-dialog-content>
+            <p fxLayout="column">
+
+                <mat-form-field width="100%">
+                    <input matInput placeholder="firstname" type="text" [(ngModel)]="register.firstname"
+                        name="firstname" #firstname="ngModel" required />
+                    <mat-error *ngIf="firstname.errors?.['required']">firstname is required </mat-error>
+                </mat-form-field>
+                <mat-form-field width="100%">
+                    <input matInput placeholder="lastname" type="text" [(ngModel)]="register.lastname" name="lastname"
+                        #lastname="ngModel" required />
+                    <mat-error *ngIf="username.errors?.['required']">lastname is required </mat-error>
+                </mat-form-field>
+
+                <mat-form-field width="100%">
+                    <input matInput placeholder="Email" type="email" [(ngModel)]="register.email" name="username"
+                        #username="ngModel" required />
+                    <mat-error *ngIf="username.errors?.['required']">email is required </mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input matInput placeholder="Password" type="password" [(ngModel)]="register.password"
+                        name="password" #password="ngModel" required />
+                    <mat-error *ngIf="password.errors?.['required']">Password is required</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="Confirm Password" type="password"
+                        [(ngModel)]="register.confirmpassword" name="confirmpassword" #confirmpassword="ngModel"
+                        required />
+
+                    <mat-error *ngIf="confirmpassword.errors?.['required']">Password is required</mat-error>
+
+                </mat-form-field>
+
+                <!-- <mat-checkbox [(ngModel)]="user.remember" name="remember">Remember Me</mat-checkbox> -->
+            </p>
+        </mat-dialog-content>
+
+        <mat-dialog-actions>
+            <span class="flex-spacer"></span>
+            <button mat-button mat-dialog-close>Cancel</button>
+            <button mat-button type="submit" class="background-primary text-floral-white"
+                [disabled]="registerform.form.invalid">Submit</button>
+        </mat-dialog-actions>
+    </form>
+</div>
+
+<div *ngIf="successRegistration">
+    <mat-toolbar class="success">
+        Registration Successful
+        <span class="flex-spacer"></span>
+        <button mat-button mat-dialog-close>&times;</button>
+    </mat-toolbar>
+    <p> User Created.</p>
+</div>

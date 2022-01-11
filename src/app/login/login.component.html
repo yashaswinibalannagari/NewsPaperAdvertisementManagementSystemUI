@@ -1,4 +1,4 @@
-<mat-toolbar color="primary">
+<mat-toolbar color="accent">
     Login
     <span class="flex-spacer"></span>
     <button mat-button mat-dialog-close>&times;</button>
@@ -22,7 +22,9 @@
             <!-- <mat-checkbox [(ngModel)]="user.remember" name="remember">Remember Me</mat-checkbox> -->
         </p>
     </mat-dialog-content>
-
+    <div *ngIf="invalid">
+        <mat-error>UserName or Password is Incorrect.</mat-error>
+    </div>
     <mat-dialog-actions>
         <span class="flex-spacer"></span>
         <button mat-button mat-dialog-close>Cancel</button>

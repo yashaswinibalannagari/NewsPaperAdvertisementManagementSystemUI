@@ -7,7 +7,7 @@
 
     <span class="flex-spacer"></span>
     <div *ngIf="!_loginService.loggedIn()">
-        <a mat-button><span class="fa fa-sign-up fa-lg"></span>SignUp</a>
+        <a mat-button (click)="openSignupForm()"><span class="fa fa-sign-up fa-lg"></span>SignUp</a>
         <a mat-button (click)="openLoginForm()"><span class="fa fa-sign-in fa-lg"></span>Login</a>
 
 
