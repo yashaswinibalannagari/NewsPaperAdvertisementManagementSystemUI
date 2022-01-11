@@ -1,5 +1,8 @@
 import { Routes } from '@angular/router';
 import { AboutComponent } from '../about/about.component';
+import { AdminComponent } from '../admin/admin.component';
+import { AuthGuard } from '../auth.guard';
+import { ClientComponent } from '../client/client.component';
 import { ContactComponent } from '../contact/contact.component';
 import { FaqsComponent } from '../faqs/faqs.component';
 
@@ -11,5 +14,7 @@ export const routes: Routes = [
     { path: 'about', component: AboutComponent },
     { path: 'contact', component: ContactComponent },
     { path: 'faqs', component: FaqsComponent },
+    { path: 'client', component: ClientComponent, canActivate: [AuthGuard] },
+    { path: 'admin', component: AdminComponent },
     { path: '', redirectTo: '/home', pathMatch: 'full' }
 ];

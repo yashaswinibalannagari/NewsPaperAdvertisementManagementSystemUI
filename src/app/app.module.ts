@@ -14,6 +14,9 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
+import { JwtModule } from '@auth0/angular-jwt';
+import { AuthGuard } from './auth.guard';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -25,6 +28,16 @@ import { ContactComponent } from './contact/contact.component';
 import { FaqsComponent } from './faqs/faqs.component';
 
 
+
+import { ProcessHttpmsgService } from './services/process-httpmsg.service';
+import { LoginService } from './services/login.service';
+import { AdminComponent } from './admin/admin.component';
+import { ClientComponent } from './client/client.component';
+
+export function tokenGetter() {
+  return localStorage.getItem("access_token");
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +47,9 @@ import { FaqsComponent } from './faqs/faqs.component';
     LoginComponent,
     AboutComponent,
     ContactComponent,
-    FaqsComponent
+    FaqsComponent,
+    AdminComponent,
+    ClientComponent
   ],
   imports: [
     BrowserModule,
@@ -51,9 +66,22 @@ import { FaqsComponent } from './faqs/faqs.component';
     MatInputModule,
     MatCheckboxModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        allowedDomains: ["localhost:4200"],
+        disallowedRoutes: ["http://localhost:4200/api/Login"],
+      },
+    }),
+
   ],
-  providers: [],
+  providers: [
+    ProcessHttpmsgService,
+    LoginService,
+    AuthGuard
+  ],
   entryComponents: [
     LoginComponent
   ],
