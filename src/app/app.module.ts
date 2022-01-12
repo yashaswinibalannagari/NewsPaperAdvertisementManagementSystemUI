@@ -16,7 +16,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { JwtModule } from '@auth0/angular-jwt';
-import { AuthGuard } from './auth.guard';
+import { MatIconModule } from '@angular/material/icon';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -60,6 +60,7 @@ export function tokenGetter() {
     FlexLayoutModule,
     MatButtonModule,
     MatListModule,
+    MatIconModule,
     MatCardModule,
     MatGridListModule,
     MatDialogModule,
@@ -83,7 +84,6 @@ export function tokenGetter() {
 
     ProcessHttpmsgService,
     LoginService,
-    AuthGuard,
 
   ],
   entryComponents: [

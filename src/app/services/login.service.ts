@@ -8,6 +8,7 @@ import { map } from 'rxjs';
 import { Token } from '../shared/token';
 import { Router } from '@angular/router';
 import { Register } from '../shared/register';
+import { getRtlScrollAxisType } from '@angular/cdk/platform';
 @Injectable({
   providedIn: 'root'
 })
@@ -25,6 +26,7 @@ export class LoginService {
     return this.http.post<Token>(baseurl + 'Login', user, httpOptions)
       .pipe(map(result => {
         localStorage.setItem('access_token', result.token);
+        localStorage.setItem('role', result.role);
         return result;
       })
       );
@@ -42,8 +44,17 @@ export class LoginService {
 
   }
 
+  isAdmin(): boolean {
+    return (localStorage.getItem('role') == 'Admin');
+  }
+
+  isUser(): boolean {
+    return (localStorage.getItem('role') == 'User');
+  }
+
   logout() {
     localStorage.removeItem('access_token');
+    localStorage.removeItem('role');
     this._router.navigate(['/home']);
   }
 
