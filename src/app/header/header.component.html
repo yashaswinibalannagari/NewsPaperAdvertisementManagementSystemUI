@@ -1,16 +1,25 @@
 <mat-toolbar color="primary">
     <span><img src="/assets/images/logo.png" height=30 width=41></span>
-    <a mat-button routerLink="/home"><span class="fa fa-home fa-lg"></span> Home</a>
-    <a mat-button routerLink="/about"><span class="fa fa-home fa-lg"></span> About</a>
-    <a mat-button routerLink="/contact"><span class="fa fa-address-card fa-lg"></span>Contact</a>
-    <a mat-button routerLink="/faqs"><span class="fa fa-question-circle fa-lg"></span> FAQs</a>
+    <div *ngIf="!_loginService.loggedIn()">
+        <a mat-button routerLink="/home"><span class="fa fa-home fa-lg"></span> Home</a>
+        <a mat-button routerLink="/about"><span class="fa fa-home fa-lg"></span> About</a>
+        <a mat-button routerLink="/contact"><span class="fa fa-address-card fa-lg"></span>Contact</a>
+        <a mat-button routerLink="/faqs"><span class="fa fa-question-circle fa-lg"></span> FAQs</a>
+    </div>
+
+    <div *ngIf="_loginService.loggedIn()">
+        <a mat-button routerLink="/Home"><span class="fa fa-home fa-lg"></span> Home</a>
+        <a mat-button routerLink="/UpdateProfile"><span class="fa fa-home fa-lg"></span> About</a>
+        <a mat-button routerLink="/NewAd"><span class="fa fa-address-card fa-lg"></span>Contact</a>
+        <a mat-button routerLink="/Notifications"><span class="fa fa-question-circle fa-lg"></span> FAQs</a>
+    </div>
+
+
 
     <span class="flex-spacer"></span>
     <div *ngIf="!_loginService.loggedIn()">
         <a mat-button (click)="openSignupForm()"><span class="fa fa-sign-up fa-lg"></span>SignUp</a>
         <a mat-button (click)="openLoginForm()"><span class="fa fa-sign-in fa-lg"></span>Login</a>
-
-
     </div>
     <div *ngIf="_loginService.loggedIn()">
         <a mat-button (click)="_loginService.logout()"><span class=" fa fa-log-out fa-lg"></span>Logout</a>
