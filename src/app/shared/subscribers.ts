@@ -27,7 +27,7 @@ export const SUBSCRIBERS: subscriber[] = [
         description: 'Indian Express Limited is an Indian news media publishing company. It publishes several widely circulated dailies, including The Indian Express and The Financial Express in English, the Loksatta in Marathi and the Jansatta in Hindi. '
     },
     {
-        name: 'mint',
+        name: 'Mint',
         imgpath: '/assets/images/mint.jpg',
         description: 'Mint is an Indian financial daily newspaper published by HT Media, a Delhi-based media group which is controlled by the KK Birla family and also publishes Hindustan Times.'
     }

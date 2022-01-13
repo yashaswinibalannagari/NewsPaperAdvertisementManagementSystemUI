@@ -6,6 +6,20 @@
     object-fit: cover;
 }
 
+
+.content {
+    padding: 16px;
+}
+
+.content > mat-card {
+    margin-bottom: 16px;
+}
+
+.matcardimage{
+    height: 200px;
+    width: 360px;
+}
+
 .homecontent
 {
         position: absolute;

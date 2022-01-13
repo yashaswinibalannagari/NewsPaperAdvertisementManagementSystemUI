@@ -30,28 +30,33 @@
         <h3 fxLayoutAlign="center">— Leading newspapers to advertise with in India — </h3>
         <hr>
     </div>
-    <div fxLayout="row">
-        <div fxLayout="row wrap" fxLayoutAlign="stretch" fxLayoutGap="100px" fxFlexOffset="100px">
 
-            <div *ngFor="let subscriber of subscribers" fxFlex="25%">
+    <div class="content">
+        <div fxLayout="row">
+            <div fxLayout="row wrap" fxLayoutAlign="stretch" fxLayoutGap="15px grid">
 
-                <mat-card fxFlex>
+                <div *ngFor="let subscriber of subscribers" fxFlex="25%" fxFlexOffset="80px">
+                    <mat-card fxFlex>
 
-                    <mat-card-header>
-                        <div mat-card-avatar></div>
-                        <mat-card-title>
-                            <h3>{{subscriber.name}}</h3>
-                        </mat-card-title>
-                    </mat-card-header>
-                    <img mat-card-image src={{subscriber.imgpath}} alt={{subscriber.name}} class="matcardimage">
-                    <mat-card-content>
-                        <p>{{subscriber.description}}
-                        </p>
-                    </mat-card-content>
+                        <mat-card-header>
+                            <div mat-card-avatar></div>
+                            <mat-card-title>
+                                <h3>{{subscriber.name}}</h3>
+                            </mat-card-title>
+                        </mat-card-header>
+                        <img mat-card-image src={{subscriber.imgpath}} alt={{subscriber.name}} class="matcardimage">
+                        <mat-card-content>
+                            <p>{{subscriber.description}}
+                            </p>
+                        </mat-card-content>
 
-                </mat-card>
+                    </mat-card>
+
+                </div>
+
+
+
             </div>
-
         </div>
     </div>
 </div>
