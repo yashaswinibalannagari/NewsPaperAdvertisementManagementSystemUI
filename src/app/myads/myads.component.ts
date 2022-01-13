@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AdvertisementService } from '../services/advertisement.service';
 import { Advertisement } from '../shared/advertisement';
+import { baseurl } from '../shared/baseurl';
 
 @Component({
   selector: 'app-myads',
@@ -11,6 +12,7 @@ export class MyadsComponent implements OnInit {
 
   advertisements: Advertisement[];
   errMsg: string;
+  baseurl: string = baseurl;
 
 
   constructor(private _advertisementService: AdvertisementService) { }

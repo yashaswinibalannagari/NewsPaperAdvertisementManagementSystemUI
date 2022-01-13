@@ -1,17 +1,14 @@
 
 export class Advertisement {
-    advertisementId: number;
-    advertisementType: string;
+    // advertisementId: number;
     advertisementTitle: string;
+    advertisementType: string;
     advertisementDesc: string;
-    AdvertisementImageName: string;
-    AdvertisementImageFile: any;
-    SubscriptionPlan: string;
-    advertisementSize: string;
-    Subscriber: string;
-    AdvRegisterationDate: any;
-    AdvPublishedDate: any;
-    Agree: Boolean;
-    AdminApproved: Boolean;
-    ClientId: string;
+    advertisementImageName: string;
+    advRegistrationDate: any;
+    // advertisementImageFile: any;
+    // subscriptionPlan: string;
+    // advertisementSize: string;
+    // subscriber: string;
+    // agree: Boolean;
 }

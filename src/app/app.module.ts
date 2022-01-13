@@ -11,12 +11,13 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtModule } from '@auth0/angular-jwt';
 import { MatIconModule } from '@angular/material/icon';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -37,6 +38,7 @@ import { RegisterComponent } from './register/register.component';
 import { MyadsComponent } from './myads/myads.component';
 import { AdvertisementService } from './services/advertisement.service';
 import { AuthinterceptorService } from './services/authinterceptor.service';
+import { NewaddComponent } from './newadd/newadd.component';
 
 export function tokenGetter() {
   return localStorage.getItem("access_token");
@@ -55,7 +57,8 @@ export function tokenGetter() {
     AdminComponent,
     ClientComponent,
     RegisterComponent,
-    MyadsComponent
+    MyadsComponent,
+    NewaddComponent
   ],
   imports: [
     BrowserModule,
@@ -73,6 +76,7 @@ export function tokenGetter() {
     MatInputModule,
     MatCheckboxModule,
     FormsModule,
+    MatProgressSpinnerModule,
     ReactiveFormsModule,
     HttpClientModule,
     JwtModule.forRoot({

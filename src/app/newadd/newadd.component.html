@@ -1,0 +1,52 @@
+<div class="container" fxLayout="column" fxLayoutGap="10px">
+
+    <div fxFlex>
+        <div>
+            <h3 fxLayoutAlign="center">Create Your Advertisement</h3>
+            <hr>
+        </div>
+    </div>
+
+
+    <div>
+        <div fxFlexOffset="500px" class="form-size">
+            <p>{{ advertisementForm.value | json }} {{ advertisementForm.status | json }}</p>
+
+            <form novalidate [formGroup]="advertisementForm" #fform="ngForm" (ngSubmit)="onSubmit()">
+                <p>
+                    <mat-form-field class="half-width">
+                        <input matInput formControlName="advertisementTitle" placeholder="Title" type="text" required>
+                        <mat-error *ngIf="formErrors.advertisementTitle">{{formErrors.advertisementTitle}}</mat-error>
+                    </mat-form-field>
+                </p>
+                <p>
+                    <mat-form-field class="half-width">
+                        <input matInput formControlName="advertisementType" placeholder="category" type="text" required>
+                        <mat-error *ngIf="formErrors.advertisementType">{{formErrors.advertisementType}}</mat-error>
+                    </mat-form-field>
+                </p>
+                <p>
+                    <mat-form-field class="half-width">
+                        <input matInput formControlName="advertisementImageName" placeholder="ImageName" type="text"
+                            required>
+                        <mat-error *ngIf="formErrors.advertisementImageName">{{formErrors.advertisementImageName}}
+                        </mat-error>
+                    </mat-form-field>
+                </p>
+                <p>
+                    <mat-form-field class="full-width">
+                        <textarea matInput formControlName="advertisementDesc" placeholder="Description"
+                            rows=5></textarea>
+                        <mat-error *ngIf="formErrors.advertisementDesc">{{formErrors.advertisementDesc}}</mat-error>
+                    </mat-form-field>
+                </p>
+
+
+
+                <button type="submit" mat-button class="background-primary text-floral-white"
+                    [disabled]="advertisementForm.invalid">Submit</button>
+
+            </form>
+            &nbsp;&nbsp;&nbsp;
+        </div>
+    </div>

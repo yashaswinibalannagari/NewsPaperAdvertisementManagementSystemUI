@@ -10,6 +10,7 @@ import { FaqsComponent } from '../faqs/faqs.component';
 import { HomeComponent } from '../home/home.component';
 import { LoginComponent } from '../login/login.component';
 import { MyadsComponent } from '../myads/myads.component';
+import { NewaddComponent } from '../newadd/newadd.component';
 export const routes: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'login', component: LoginComponent },
@@ -17,6 +18,7 @@ export const routes: Routes = [
     { path: 'contact', component: ContactComponent },
     { path: 'faqs', component: FaqsComponent },
     { path: 'myads', component: MyadsComponent },
+    { path: 'newadd', component: NewaddComponent },
     { path: 'client', component: ClientComponent, canActivate: [AuthGuard] },
     { path: 'admin', component: AdminComponent, canActivate: [AuthGuard, RoleGuard] },
     { path: '', redirectTo: '/home', pathMatch: 'full' }

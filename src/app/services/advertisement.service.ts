@@ -26,13 +26,13 @@ export class AdvertisementService {
   }
 
 
-  postAdvertisement(advertisement: Advertisement) {
+  postAdvertisement(advertisement: Advertisement): Observable<any> {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
       })
     }
-    return this.http.post(baseurl + 'advertisement/' + advertisement.advertisementId, advertisement, httpOptions)
+    return this.http.post(baseurl + 'Client/AddAdvertisement', advertisement, httpOptions)
       .pipe(catchError(error => this.processHTTPMsgService.handleError(error)));
   }
 
