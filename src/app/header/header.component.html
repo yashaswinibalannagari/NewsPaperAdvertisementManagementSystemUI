@@ -10,7 +10,7 @@
 
     <div *ngIf="_loginService.loggedIn() &&_loginService.isUser()">
         <a mat-button routerLink="/home"><span class="fa fa-home fa-lg"></span> Home</a>
-        <a mat-button>
+        <a mat-button routerLink="/myads">
             <mat-icon>business_center</mat-icon> MyAds
         </a>
         <a mat-button>
@@ -18,9 +18,9 @@
             <mat-icon>plus_one</mat-icon>
             NewAd
         </a>
-        <a mat-button>
+        <!-- <a mat-button>
             <mat-icon>edit</mat-icon>edit Ad
-        </a>
+        </a> -->
         <a mat-button><span class="fa fa-user fa-lg"></span> UpdateProfile</a>
 
     </div>

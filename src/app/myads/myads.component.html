@@ -1,0 +1,44 @@
+<div *ngIf="advertisements" class="container" fxLayout="column">
+
+    <div fxFlex>
+        <h3 fxLayoutAlign="center">— Your Advertisements — </h3>
+        <hr>
+    </div>
+
+    <div class="content">
+        <div fxLayout="row">
+            <div fxLayout="row wrap" fxLayoutAlign=" stretch" fxLayoutGap="15px grid">
+
+                <div *ngFor="let ad of advertisements" fxFlex="40%" fxFlexOffset="80px">
+
+                    <mat-card class="mat-elevation-z4">
+
+                        <mat-card-header>
+                            <div mat-card-avatar></div>
+                            <mat-card-title>
+                                <h1>{{ad.advertisementTitle}}</h1>
+                                <h3>{{ad.advertisementType}}</h3>
+                            </mat-card-title>
+                        </mat-card-header>
+                        <img mat-card-image src='/assets/images/home.jpg' alt={{ad.advertisementTitle}}
+                            class="matcardimage">
+                        <mat-card-content>
+                            <p>{{ad.advertisementDesc}}
+                            </p>
+                        </mat-card-content>
+
+                        <mat-card-actions>
+                            <button mat-button class="edit">EDIT</button>
+                            <button mat-button class="delete">DELETE</button>
+                        </mat-card-actions>
+
+                    </mat-card>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+
+</div>

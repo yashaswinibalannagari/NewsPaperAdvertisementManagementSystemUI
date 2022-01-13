@@ -14,7 +14,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtModule } from '@auth0/angular-jwt';
 import { MatIconModule } from '@angular/material/icon';
 
@@ -34,6 +34,9 @@ import { LoginService } from './services/login.service';
 import { AdminComponent } from './admin/admin.component';
 import { ClientComponent } from './client/client.component';
 import { RegisterComponent } from './register/register.component';
+import { MyadsComponent } from './myads/myads.component';
+import { AdvertisementService } from './services/advertisement.service';
+import { AuthinterceptorService } from './services/authinterceptor.service';
 
 export function tokenGetter() {
   return localStorage.getItem("access_token");
@@ -51,7 +54,8 @@ export function tokenGetter() {
     FaqsComponent,
     AdminComponent,
     ClientComponent,
-    RegisterComponent
+    RegisterComponent,
+    MyadsComponent
   ],
   imports: [
     BrowserModule,
@@ -81,9 +85,10 @@ export function tokenGetter() {
 
   ],
   providers: [
-
+    { provide: HTTP_INTERCEPTORS, useClass: AuthinterceptorService, multi: true },
     ProcessHttpmsgService,
     LoginService,
+    AdvertisementService
 
   ],
   entryComponents: [

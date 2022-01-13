@@ -1,0 +1,29 @@
+
+
+.content {
+    padding: 16px;
+}
+
+.content > mat-card {
+    margin-bottom: 16px;
+}
+
+.column-label {
+    margin-right: 8px;
+    font-size: 1rem;
+    
+}
+.delete{
+    background-color: red;
+    color: black;
+}
+.edit{
+    background-color: green;
+    color: black;
+}
+
+.mat-icon{
+    height:48px !important;
+    width:48px !important;
+    font-size:48px !important;
+}

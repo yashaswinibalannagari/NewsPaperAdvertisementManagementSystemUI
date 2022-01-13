@@ -33,6 +33,10 @@ export class LoginService {
 
   }
 
+  getToken(): any {
+    return localStorage.getItem('access_token');
+  }
+
   signUp(userRegister: Register): Observable<boolean> {
     const httpOptions = {
       headers: new HttpHeaders({
