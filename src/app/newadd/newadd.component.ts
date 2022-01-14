@@ -2,21 +2,30 @@ import { formatDate } from '@angular/common';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { AdvertisementService } from '../services/advertisement.service';
-import { Advertisement } from '../shared/advertisement';
+import { Advertisement, subPlan } from '../shared/advertisement';
+import { adSize } from '../shared/advertisement';
+import { SUBSCRIBERS } from '../shared/subscribers';
+
 
 @Component({
   selector: 'app-newadd',
   templateUrl: './newadd.component.html',
   styleUrls: ['./newadd.component.scss']
 })
+
 export class NewaddComponent implements OnInit {
 
-
+  imgUrl: string = '/assets/images/upload.png';
+  defimg: string = '/assets/images/upload.png';
+  fileToUpload: any;
 
 
   advertisementForm: FormGroup;
   advertisement: Advertisement
   errMsg: any;
+  adSize = adSize;
+  adsubscribers = SUBSCRIBERS;
+  subPlan = subPlan;
 
   @ViewChild('fform') advertisementFormDirective: NgForm;
 
@@ -24,7 +33,11 @@ export class NewaddComponent implements OnInit {
     'advertisementTitle': '',
     'advertisementType': '',
     'advertisementDesc': '',
-    'advertisementImageName': ''
+    'advertisementImageFile': File,
+    'advertisementSize': '',
+    'subscriber': '',
+    'agree': false,
+    'subscriptionPlan': '',
   };
 
 
@@ -44,11 +57,22 @@ export class NewaddComponent implements OnInit {
       'required': 'Advertisement Description is required.',
       'minlength': 'Advertisement Description must be at least 2 characters long.'
     },
-    'advertisementImageName': {
-      'required': 'Advertisement ImageName is required.',
-      'minlength': 'Advertisement ImageName must be at least 2 characters long.',
-      'maxlength': 'Advertisement ImageName cannot be more than 25 characters long.'
+    ' advertisementImageFile': {
+      'required': 'Advertisement ImageFile is required.',
     },
+    'advertisementSize': {
+      'required': 'Advertisement Size is required.',
+    },
+    'subscriber': {
+      'required': 'Advertisement Size is required.',
+    },
+    'agree': {
+      'requiredTrue': 'Please Agree to terms and conditions',
+    },
+    ' subscriptionPlan': {
+      'required': 'Subscription Plan is required.',
+    },
+
   };
 
   constructor(private fb: FormBuilder, private _advertisementService: AdvertisementService) {
@@ -65,7 +89,12 @@ export class NewaddComponent implements OnInit {
       advertisementTitle: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(25)]],
       advertisementType: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(25)]],
       advertisementDesc: ['', [Validators.required, Validators.minLength(2)]],
-      advertisementImageName: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(25)]]
+      advertisementImageFile: ['', [Validators.required]],
+      advertisementSize: ['', [Validators.required]],
+      subscriber: ['', [Validators.required]],
+      agree: [false, [Validators.requiredTrue]],
+      subscriptionPlan: ['', [Validators.required]]
+
 
     });
 
@@ -100,23 +129,41 @@ export class NewaddComponent implements OnInit {
 
 
 
-  onSubmit(): void {
+  onSubmit(Image: any): void {
     this.advertisement = this.advertisementForm.value;
+    this.advertisement.advertisementImageFile = this.fileToUpload;
+
+    console.log(this.fileToUpload);
     this.advertisement.advRegistrationDate = formatDate(new Date(), 'dd/MM/yyyy', 'en-US');
 
-    //service
-    // this._advertisementService.postAdvertisement(this.advertisement).subscribe(() => { }, (errMsg) => this.errMsg = errMsg);
+    this._advertisementService.postAdvertisement(this.advertisement).subscribe((data) => { console.log("upload is done"); this.imgUrl = this.defimg }, (errMsg) => this.errMsg = errMsg);
 
     console.log(this.advertisement);
 
-    this.advertisementForm.reset(
-      {
-        advertisementTitle: '',
-        advertisementDesc: '',
-      }
-    );
+    // this.advertisementForm.reset(
+    //   {
+    //     advertisementTitle: '',
+    //     advertisementDesc: '',
+    //   }
+    // );
 
     this.advertisementFormDirective.resetForm();
 
   }
+
+  handleFileInput(event: any) {
+    const file: FileList = event.target.files;
+
+    this.fileToUpload = file.item(0);
+
+    var reader = new FileReader();
+
+    reader.onload = (event: any) => {
+      this.imgUrl = event.target.result;
+    }
+
+    reader.readAsDataURL(this.fileToUpload);
+  }
+
 }
+

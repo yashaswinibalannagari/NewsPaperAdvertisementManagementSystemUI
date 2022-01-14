@@ -12,7 +12,7 @@
         <div fxFlexOffset="500px" class="form-size">
             <p>{{ advertisementForm.value | json }} {{ advertisementForm.status | json }}</p>
 
-            <form novalidate [formGroup]="advertisementForm" #fform="ngForm" (ngSubmit)="onSubmit()">
+            <form novalidate [formGroup]="advertisementForm" #fform="ngForm" (ngSubmit)="onSubmit(Image)">
                 <p>
                     <mat-form-field class="half-width">
                         <input matInput formControlName="advertisementTitle" placeholder="Title" type="text" required>
@@ -26,13 +26,30 @@
                     </mat-form-field>
                 </p>
                 <p>
+                    Upload Your Advertisement Image
+                </p>
+
+                <p>
+                    <img [src]="imgUrl" style="width:200px;height:200px">
+                    <input type="file" #Image (change)="handleFileInput($event)" accept="image/*"
+                        formControlName="advertisementImageFile" required>
+                    <mat-error *ngIf="formErrors.advertisementImageFile">{{formErrors.advertisementImageFile}}
+                    </mat-error>
+                </p>
+                <!-- <p>
                     <mat-form-field class="half-width">
                         <input matInput formControlName="advertisementImageName" placeholder="ImageName" type="text"
                             required>
                         <mat-error *ngIf="formErrors.advertisementImageName">{{formErrors.advertisementImageName}}
                         </mat-error>
                     </mat-form-field>
-                </p>
+                </p> -->
+
+
+
+
+
+
                 <p>
                     <mat-form-field class="full-width">
                         <textarea matInput formControlName="advertisementDesc" placeholder="Description"
@@ -41,9 +58,54 @@
                     </mat-form-field>
                 </p>
 
+                <p>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Newspaper</mat-label>
+                        <mat-select formControlName="subscriber">
+                            <mat-option *ngFor="let subscriber of adsubscribers" [value]="subscriber.name">
+                                {{subscriber.name}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf=" formErrors.subscriber">{{formErrors.subscriber}}</mat-error>
+                    </mat-form-field>
 
+                </p>
+                <p>
 
-                <button type="submit" mat-button class="background-primary text-floral-white"
+                    <mat-form-field appearance="fill">
+                        <mat-label>Size</mat-label>
+                        <mat-select formControlName="advertisementSize">
+                            <mat-option *ngFor="let size of adSize" [value]="size.name">
+                                {{size.name}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf=" formErrors.advertisementSize">{{formErrors.advertisementSize}}</mat-error>
+                    </mat-form-field>
+
+                </p>
+
+                <p>
+
+                    <mat-form-field appearance="fill">
+                        <mat-label>Subscription</mat-label>
+                        <mat-select formControlName="subscriptionPlan">
+                            <mat-option *ngFor="let plan of subPlan" [value]="plan.name">
+                                {{plan.name}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf=" formErrors. subscriptionPlan">{{formErrors. subscriptionPlan}}</mat-error>
+                    </mat-form-field>
+
+                </p>
+
+                <p>
+                    <mat-slide-toggle formControlName="agree">Agree to Terms and Conditions
+                    </mat-slide-toggle>
+                    <mat-error *ngIf="formErrors.agree">please agree
+                        to terms and conditions</mat-error>
+                </p>
+
+                <button type=" submit" mat-button class="background-primary text-floral-white"
                     [disabled]="advertisementForm.invalid">Submit</button>
 
             </form>

@@ -27,12 +27,21 @@ export class AdvertisementService {
 
 
   postAdvertisement(advertisement: Advertisement): Observable<any> {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-      })
-    }
-    return this.http.post(baseurl + 'Client/AddAdvertisement', advertisement, httpOptions)
+    const formData: FormData = new FormData();
+
+    formData.append('advertisementTitle', advertisement.advertisementTitle);
+    formData.append('advertisementType', advertisement.advertisementType);
+    formData.append('advertisementDesc', advertisement.advertisementDesc);
+    formData.append('advertisementImageFile', advertisement.advertisementImageFile, advertisement.advertisementImageFile.name);
+    formData.append('subscriptionPlan', advertisement.subscriptionPlan);
+    formData.append('subscriber', advertisement.subscriber);
+    formData.append('advertisementSize', advertisement.advertisementSize);
+    formData.append('advRegisteredDate', advertisement.advRegistrationDate);
+    formData.append('agree', advertisement.agree.toString());
+
+    console.log(formData);
+
+    return this.http.post<any>(baseurl + 'Client/AddAdvertisement', formData)
       .pipe(catchError(error => this.processHTTPMsgService.handleError(error)));
   }
 

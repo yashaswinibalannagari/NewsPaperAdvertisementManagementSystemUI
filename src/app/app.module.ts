@@ -18,6 +18,9 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { FormsModule } from '@angular/forms';
+import { MatOptionModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -39,6 +42,7 @@ import { MyadsComponent } from './myads/myads.component';
 import { AdvertisementService } from './services/advertisement.service';
 import { AuthinterceptorService } from './services/authinterceptor.service';
 import { NewaddComponent } from './newadd/newadd.component';
+import { TermsComponent } from './terms/terms.component';
 
 export function tokenGetter() {
   return localStorage.getItem("access_token");
@@ -58,7 +62,8 @@ export function tokenGetter() {
     ClientComponent,
     RegisterComponent,
     MyadsComponent,
-    NewaddComponent
+    NewaddComponent,
+    TermsComponent
   ],
   imports: [
     BrowserModule,
@@ -70,10 +75,13 @@ export function tokenGetter() {
     MatIconModule,
     MatCardModule,
     MatGridListModule,
+    MatOptionModule,
     MatDialogModule,
     AppRoutingModule,
+    MatSlideToggleModule,
     MatFormFieldModule,
     MatInputModule,
+    MatSelectModule,
     MatCheckboxModule,
     FormsModule,
     MatProgressSpinnerModule,

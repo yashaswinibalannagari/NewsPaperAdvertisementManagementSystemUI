@@ -1,8 +1,15 @@
-
+// mat-toolbar {
+//     justify-content: space-between;
+// }
 
 .content {
     padding: 16px;
 }
+
+.mat-card{
+    background-color: rgb(201, 197, 197) !important;
+  }
+
 
 .content > mat-card {
     margin-bottom: 16px;
@@ -11,19 +18,19 @@
 .column-label {
     margin-right: 8px;
     font-size: 1rem;
-    
+}
+
+.matcardimage{
+    height: 450px;
+    width: 500px;
+    margin-left: 100px;
+}
+
+.edit{
+    background-color: blue;
+    color:white
 }
 .delete{
     background-color: red;
-    color: black;
-}
-.edit{
-    background-color: green;
-    color: black;
-}
-
-.mat-icon{
-    height:48px !important;
-    width:48px !important;
-    font-size:48px !important;
+    color: white;
 }
