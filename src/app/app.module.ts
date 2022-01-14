@@ -43,6 +43,8 @@ import { AdvertisementService } from './services/advertisement.service';
 import { AuthinterceptorService } from './services/authinterceptor.service';
 import { NewaddComponent } from './newadd/newadd.component';
 import { TermsComponent } from './terms/terms.component';
+import { EditadComponent } from './editad/editad.component';
+import { DeleteComponent } from './delete/delete.component';
 
 export function tokenGetter() {
   return localStorage.getItem("access_token");
@@ -63,7 +65,9 @@ export function tokenGetter() {
     RegisterComponent,
     MyadsComponent,
     NewaddComponent,
-    TermsComponent
+    TermsComponent,
+    EditadComponent,
+    DeleteComponent,
   ],
   imports: [
     BrowserModule,
@@ -106,7 +110,8 @@ export function tokenGetter() {
   entryComponents: [
 
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    DeleteComponent
   ],
   bootstrap: [AppComponent]
 })

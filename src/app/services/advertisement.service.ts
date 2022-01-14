@@ -21,9 +21,15 @@ export class AdvertisementService {
 
 
   getAdvertisementsByClientId(): Observable<number[] | any> {
-    return this.http.get<Advertisement>(baseurl + 'Client/GetAdvertisementsByClientId')
+    return this.http.get<Advertisement[]>(baseurl + 'Client/GetAdvertisementsByClientId')
       .pipe(catchError(this.processHTTPMsgService.handleError));
   }
+
+
+  // getAdvertisementsById(): Observable<number[] | any> {
+  //   return this.http.get<Advertisement>(baseurl + 'Client/GetAdvertisementsByClientId')
+  //     .pipe(catchError(this.processHTTPMsgService.handleError));
+  // }
 
 
   postAdvertisement(advertisement: Advertisement): Observable<any> {
@@ -45,6 +51,20 @@ export class AdvertisementService {
       .pipe(catchError(error => this.processHTTPMsgService.handleError(error)));
   }
 
+  UpdateAdvertisement(advertisement: Advertisement): Observable<any> {
+    const formData: FormData = new FormData();
+
+    formData.append('advertisementTitle', advertisement.advertisementTitle);
+    formData.append('advertisementType', advertisement.advertisementType);
+    formData.append('advertisementDesc', advertisement.advertisementDesc);
+    formData.append('advertisementImageFile', advertisement.advertisementImageFile, advertisement.advertisementImageFile.name);
+    formData.append('advertisementId', advertisement.advertisementId.toString());
+
+    return this.http.put<any>(baseurl + 'Client/UpdateAdvertisement', formData)
+      .pipe(catchError(error => this.processHTTPMsgService.handleError(error)));
+  }
+
+
   getExpiredAdvertisement(): Observable<Advertisement[]> {
     return this.http.get<Advertisement[]>(baseurl + 'expiredadvertisement')
       .pipe(catchError(this.processHTTPMsgService.handleError));
@@ -61,8 +81,8 @@ export class AdvertisementService {
   }
 
 
-  deleteAdvertisement(id: string) {
-    return this.http.delete(baseurl + 'advertisements/' + id)
+  deleteAdvertisementByClient(id: string): Observable<any> {
+    return this.http.delete<any>(baseurl + 'Client/DeleteAdvertisementByClient/' + id)
       .pipe(catchError(error => this.processHTTPMsgService.handleError(error)));
   }
 }
