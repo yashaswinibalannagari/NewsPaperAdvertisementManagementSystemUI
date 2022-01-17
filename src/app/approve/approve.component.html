@@ -1,0 +1,12 @@
+<mat-toolbar color="accent">
+    Are You sure to want to Approve this Ad
+    <span class="flex-spacer"></span>
+    <button mat-button mat-dialog-close>&times;</button>
+</mat-toolbar>
+
+
+<mat-dialog-actions>
+    <span class="flex-spacer"></span>
+    <button mat-button mat-dialog-close class=red>No</button>
+    <button mat-button class=blue (click)="ApproveAd()">Yes</button>
+</mat-dialog-actions>

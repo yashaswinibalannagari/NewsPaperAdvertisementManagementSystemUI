@@ -2,6 +2,7 @@ import { Component, Inject, OnInit, Optional } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { AdvertisementService } from '../services/advertisement.service';
+import { LoginService } from '../services/login.service';
 @Component({
   selector: 'app-delete',
   templateUrl: './delete.component.html',
@@ -13,7 +14,7 @@ export class DeleteComponent implements OnInit {
   fromDialog: string;
   errMsg: string;
 
-  constructor(private _router: Router, private advertisementService: AdvertisementService, private diaglogRef: MatDialogRef<DeleteComponent>, @Optional() @Inject(MAT_DIALOG_DATA) public data: any) {
+  constructor(private _router: Router, public _loginService: LoginService, private advertisementService: AdvertisementService, private diaglogRef: MatDialogRef<DeleteComponent>, @Optional() @Inject(MAT_DIALOG_DATA) public data: any) {
     this.fromPage = data.pageValue;
   }
 
@@ -23,6 +24,13 @@ export class DeleteComponent implements OnInit {
 
   deleteAd() {
     this.advertisementService.deleteAdvertisementByClient(this.fromPage).subscribe(() => { }, (errMsg) => { this.errMsg = errMsg });
+    this.diaglogRef.close();
+    this.reloadComponent();
+    console.log('successfully deleted');
+  }
+
+  deleteAdByAdmin() {
+    this.advertisementService.deleteAdvertisementByAdmin(this.fromPage).subscribe(() => { }, (errMsg) => { this.errMsg = errMsg });
     this.diaglogRef.close();
     this.reloadComponent();
     console.log('successfully deleted');

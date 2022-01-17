@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { SUBSCRIBERS } from '../shared/subscribers';
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
@@ -11,5 +11,7 @@ export class AdminComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  subscribers = SUBSCRIBERS;
 
 }

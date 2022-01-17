@@ -139,6 +139,12 @@ export class NewaddComponent implements OnInit {
     this.advertisement.advRegistrationDate = formatDate(new Date(), 'dd/MM/yyyy', 'en-US');
 
 
+
+    var result = subPlan.find(x => x.name === this.advertisement.subscriptionPlan);
+
+    this.advertisement.subscriptionDays = result.value;
+
+
     this._advertisementService.postAdvertisement(this.advertisement).subscribe((data) => { console.log("upload is done"); this.imgUrl = this.defimg }, (errMsg) => this.errMsg = errMsg);
 
     console.log(this.advertisement);

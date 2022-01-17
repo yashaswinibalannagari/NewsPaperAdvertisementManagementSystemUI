@@ -9,7 +9,7 @@
     </div>
 
     <div *ngIf="_loginService.loggedIn() &&_loginService.isUser()">
-        <a mat-button routerLink="/home"><span class="fa fa-home fa-lg"></span> Home</a>
+        <a mat-button routerLink="/client"><span class="fa fa-home fa-lg"></span> Home</a>
         <a mat-button routerLink="/myads">
             <mat-icon>business_center</mat-icon> MyAds
         </a>
@@ -27,14 +27,14 @@
     <div *ngIf="_loginService.loggedIn() &&_loginService.isAdmin()">
 
 
-        <a mat-button routerLink="/home"><span class="fa fa-home fa-lg"></span> Home</a>
-        <a mat-button>
+        <a mat-button routerLink="/admin"><span class="fa fa-home fa-lg"></span> Home</a>
+        <a mat-button routerLink="/allads">
             <mat-icon>business_center</mat-icon> AllAds
         </a>
-        <a mat-button>
+        <a mat-button routerLink="/approveads">
             <mat-icon>assignment_turned_in</mat-icon>ApproveAd
         </a>
-        <a mat-button>
+        <a mat-button routerLink="/expiredads">
             <mat-icon>delete</mat-icon>ExpiredAds
         </a>
         <a mat-button><span class="fa fa-user fa-lg"></span>CreateAdmin</a>

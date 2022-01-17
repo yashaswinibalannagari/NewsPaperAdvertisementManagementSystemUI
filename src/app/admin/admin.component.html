@@ -1,1 +1,65 @@
-<p>admin works!</p>
+<div>
+
+
+    <section class="home">
+        <img src="../../assets/images/admin.jpg">
+
+        <!-- <div class="homecontent">
+            <a mat-button (click)="postNewAd()">
+                <mat-card>
+                    <h1>BookAdNow</h1>
+                </mat-card>
+            </a> -->
+
+
+
+
+        <!--             
+            <a routerLink="course" class="btn btn-lg btn-light">Discover Courses</a> &nbsp;
+            <a routerLink="joinnow" class="btn btn-lg btn-primary">Join Now</a> 
+            -->
+
+        <!-- </div> -->
+
+
+    </section>
+
+
+</div>
+
+<div class="container" fxLayout="column" fxLayoutGap="10px">
+
+    <div fxFlex>
+        <h3 fxLayoutAlign="center">— Leading newspapers to advertise with in India — </h3>
+        <hr>
+    </div>
+
+    <div class="content">
+        <div fxLayout="row">
+            <div fxLayout="row wrap" fxLayoutAlign="stretch" fxLayoutGap="15px grid">
+
+                <div *ngFor="let subscriber of subscribers" fxFlex="25%" fxFlexOffset="80px">
+                    <mat-card fxFlex>
+
+                        <mat-card-header>
+                            <div mat-card-avatar></div>
+                            <mat-card-title>
+                                <h3>{{subscriber.name}}</h3>
+                            </mat-card-title>
+                        </mat-card-header>
+                        <img mat-card-image src={{subscriber.imgpath}} alt={{subscriber.name}} class="matcardimage">
+                        <mat-card-content>
+                            <p>{{subscriber.description}}
+                            </p>
+                        </mat-card-content>
+
+                    </mat-card>
+
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+</div>

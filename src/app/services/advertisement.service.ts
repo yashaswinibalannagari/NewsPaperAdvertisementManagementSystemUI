@@ -15,7 +15,12 @@ export class AdvertisementService {
 
 
   getAdvertisements(): Observable<Advertisement[]> {
-    return this.http.get<Advertisement[]>(baseurl + 'advertisements')
+    return this.http.get<Advertisement[]>(baseurl + 'Admin/GetAdvertisements')
+      .pipe(catchError(this.processHTTPMsgService.handleError));
+  }
+
+  getUnApprovedAds(): Observable<Advertisement[]> {
+    return this.http.get<Advertisement[]>(baseurl + 'Admin/GetUnApprovedAds')
       .pipe(catchError(this.processHTTPMsgService.handleError));
   }
 
@@ -44,6 +49,7 @@ export class AdvertisementService {
     formData.append('advertisementSize', advertisement.advertisementSize);
     formData.append('advRegisteredDate', advertisement.advRegistrationDate);
     formData.append('agree', advertisement.agree.toString());
+    formData.append('subscriptionDays', advertisement.subscriptionDays.toString());
 
     console.log(formData);
 
@@ -66,7 +72,7 @@ export class AdvertisementService {
 
 
   getExpiredAdvertisement(): Observable<Advertisement[]> {
-    return this.http.get<Advertisement[]>(baseurl + 'expiredadvertisement')
+    return this.http.get<Advertisement[]>(baseurl + 'Admin/GetExpiredAdvertisements')
       .pipe(catchError(this.processHTTPMsgService.handleError));
   }
 
@@ -76,7 +82,7 @@ export class AdvertisementService {
         'Content-Type': 'application/json',
       })
     }
-    return this.http.put(baseurl + 'UpdateAdvertisementStatus/' + id, httpOptions)
+    return this.http.put<any>(baseurl + 'Admin/UpdateAdvertisementStatus/' + id, httpOptions)
       .pipe(catchError(this.processHTTPMsgService.handleError));
   }
 
@@ -85,4 +91,13 @@ export class AdvertisementService {
     return this.http.delete<any>(baseurl + 'Client/DeleteAdvertisementByClient/' + id)
       .pipe(catchError(error => this.processHTTPMsgService.handleError(error)));
   }
+
+
+  deleteAdvertisementByAdmin(id: string): Observable<any> {
+    return this.http.delete<any>(baseurl + 'Admin/DeleteAdvertisement/' + id)
+      .pipe(catchError(error => this.processHTTPMsgService.handleError(error)));
+  }
+
+
+
 }

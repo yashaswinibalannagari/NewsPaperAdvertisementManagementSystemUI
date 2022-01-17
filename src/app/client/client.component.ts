@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { SUBSCRIBERS } from '../shared/subscribers';
 
 @Component({
   selector: 'app-client',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _router: Router) { }
 
   ngOnInit(): void {
+  }
+
+
+  subscribers = SUBSCRIBERS;
+
+  postNewAd() {
+    this._router.navigate(['/newadd']);
   }
 
 }

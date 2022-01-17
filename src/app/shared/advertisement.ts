@@ -1,4 +1,5 @@
 
+
 export class Advertisement {
     advertisementId: number;
     advertisementTitle: string;
@@ -11,6 +12,7 @@ export class Advertisement {
     advertisementSize: string;
     subscriber: string;
     agree: Boolean;
+    subscriptionDays: number;
 }
 
 

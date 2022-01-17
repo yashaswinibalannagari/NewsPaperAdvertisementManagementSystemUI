@@ -46,6 +46,10 @@ import { TermsComponent } from './terms/terms.component';
 import { EditadComponent } from './editad/editad.component';
 import { DeleteComponent } from './delete/delete.component';
 import { UpdateprofileComponent } from './updateprofile/updateprofile.component';
+import { AlladsComponent } from './allads/allads.component';
+import { ApproveadsComponent } from './approveads/approveads.component';
+import { ApproveComponent } from './approve/approve.component';
+import { ExpiredadsComponent } from './expiredads/expiredads.component';
 
 export function tokenGetter() {
   return localStorage.getItem("access_token");
@@ -70,6 +74,10 @@ export function tokenGetter() {
     EditadComponent,
     DeleteComponent,
     UpdateprofileComponent,
+    AlladsComponent,
+    ApproveadsComponent,
+    ApproveComponent,
+    ExpiredadsComponent,
   ],
   imports: [
     BrowserModule,
@@ -113,7 +121,8 @@ export function tokenGetter() {
 
     LoginComponent,
     RegisterComponent,
-    DeleteComponent
+    DeleteComponent,
+    ApproveComponent
   ],
   bootstrap: [AppComponent]
 })
