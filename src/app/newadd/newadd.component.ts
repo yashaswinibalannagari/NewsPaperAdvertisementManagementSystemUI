@@ -1,6 +1,7 @@
 import { formatDate } from '@angular/common';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AdvertisementService } from '../services/advertisement.service';
 import { Advertisement, subPlan } from '../shared/advertisement';
 import { adSize } from '../shared/advertisement';
@@ -75,7 +76,7 @@ export class NewaddComponent implements OnInit {
 
   };
 
-  constructor(private fb: FormBuilder, private _advertisementService: AdvertisementService) {
+  constructor(private fb: FormBuilder, private _advertisementService: AdvertisementService, private _router: Router) {
     this.createForm();
   }
 
@@ -135,6 +136,8 @@ export class NewaddComponent implements OnInit {
 
     console.log(this.fileToUpload);
 
+    this.advertisement.advRegistrationDate = formatDate(new Date(), 'dd/MM/yyyy', 'en-US');
+
 
     this._advertisementService.postAdvertisement(this.advertisement).subscribe((data) => { console.log("upload is done"); this.imgUrl = this.defimg }, (errMsg) => this.errMsg = errMsg);
 
@@ -142,6 +145,19 @@ export class NewaddComponent implements OnInit {
 
     this.advertisementFormDirective.resetForm();
 
+
+    this._router.navigate(['/myads']);
+
+
+
+
+  }
+
+  reloadComponent() {
+    let currentUrl = this._router.url;
+    this._router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this._router.onSameUrlNavigation = 'reload';
+    this._router.navigate([currentUrl]);
   }
 
   handleFileInput(event: any) {

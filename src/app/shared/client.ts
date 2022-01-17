@@ -1,9 +1,9 @@
 
 export class Client {
-    FirstName: String;
-    LastName: String;
-    Address: String;
-    MobileNumber: String;
-    ProfileImageName: Any;
-    ProfileIamgeFile: Any;
+    firstName: string;
+    lastName: string;
+    address: string;
+    mobileNumber: string;
+    profileImageName: any;
+    profileIamgeFile: any;
 }

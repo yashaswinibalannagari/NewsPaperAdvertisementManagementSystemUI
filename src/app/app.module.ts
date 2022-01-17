@@ -45,6 +45,7 @@ import { NewaddComponent } from './newadd/newadd.component';
 import { TermsComponent } from './terms/terms.component';
 import { EditadComponent } from './editad/editad.component';
 import { DeleteComponent } from './delete/delete.component';
+import { UpdateprofileComponent } from './updateprofile/updateprofile.component';
 
 export function tokenGetter() {
   return localStorage.getItem("access_token");
@@ -68,6 +69,7 @@ export function tokenGetter() {
     TermsComponent,
     EditadComponent,
     DeleteComponent,
+    UpdateprofileComponent,
   ],
   imports: [
     BrowserModule,

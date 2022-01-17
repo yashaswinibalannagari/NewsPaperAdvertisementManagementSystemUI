@@ -1,0 +1,71 @@
+<div class="container" fxLayout="column" fxLayoutGap="10px">
+
+    <div fxFlex>
+        <div>
+            <h3 fxLayoutAlign="center">Create Your Advertisement</h3>
+            <hr>
+        </div>
+    </div>
+
+
+    <div>
+        <div fxFlexOffset="500px" class="form-size">
+            <p>{{ profileForm.value | json }} {{ profileForm.status | json }}</p>
+
+            <form novalidate [formGroup]="profileForm" #fform="ngForm" (ngSubmit)="onSubmit()">
+                <p>
+                    <mat-form-field class="half-width">
+                        <input matInput formControlName="firstName" placeholder="First Name" type="text" required>
+                        <mat-error *ngIf="formErrors.firstName">{{formErrors.firstName}}</mat-error>
+                    </mat-form-field>
+                </p>
+                <p>
+                    <mat-form-field class="half-width">
+                        <input matInput formControlName="lastName" placeholder="Last Name" type="text" required>
+                        <mat-error *ngIf="formErrors.lastName">{{formErrors.lastName}}</mat-error>
+                    </mat-form-field>
+                </p>
+
+                <p>
+                    <mat-form-field class="half-width">
+                        <input matInput formControlName="mobileNumber" placeholder="Mobile Number" type="text" required>
+                        <mat-error *ngIf="formErrors.mobileNumber">{{formErrors.mobileNumber}}</mat-error>
+                    </mat-form-field>
+                </p>
+
+                <p>
+                    <mat-form-field class="full-width">
+                        <textarea matInput formControlName="address" placeholder="Address" rows=5></textarea>
+                        <mat-error *ngIf="formErrors.address">{{formErrors.address}}</mat-error>
+                    </mat-form-field>
+                </p>
+                <p>
+                    Upload Your Profile Image
+                </p>
+
+                <p>
+                    <img [src]="imgUrl" style="width:200px;height:200px">
+                    <input type="file" #Image (change)="handleFileInput($event)" accept="image/*"
+                        formControlName="profileImageFile" required>
+                    <mat-error *ngIf="formErrors.profileImageFile">{{formErrors.profileImageFile}}
+                    </mat-error>
+                </p>
+                <!-- <p>
+                    <mat-form-field class="half-width">
+                        <input matInput formControlName="advertisementImageName" placeholder="ImageName" type="text"
+                            required>
+                        <mat-error *ngIf="formErrors.advertisementImageName">{{formErrors.advertisementImageName}}
+                        </mat-error>
+                    </mat-form-field>
+                </p> -->
+
+
+
+
+                <button type=" submit" mat-button class="background-primary text-floral-white"
+                    [disabled]="profileForm.invalid">Submit</button>
+
+            </form>
+            &nbsp;&nbsp;&nbsp;
+        </div>
+    </div>

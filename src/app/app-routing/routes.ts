@@ -14,6 +14,7 @@ import { LoginComponent } from '../login/login.component';
 import { MyadsComponent } from '../myads/myads.component';
 import { NewaddComponent } from '../newadd/newadd.component';
 import { TermsComponent } from '../terms/terms.component';
+import { UpdateprofileComponent } from '../updateprofile/updateprofile.component';
 export const routes: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'login', component: LoginComponent },
@@ -25,6 +26,7 @@ export const routes: Routes = [
     { path: 'terms', component: TermsComponent },
     { path: 'editad/:id', component: EditadComponent },
     { path: 'delete', component: DeleteComponent },
+    { path: 'updateprofile', component: UpdateprofileComponent },
     { path: 'client', component: ClientComponent, canActivate: [AuthGuard] },
     { path: 'admin', component: AdminComponent, canActivate: [AuthGuard, RoleGuard] },
     { path: '', redirectTo: '/home', pathMatch: 'full' }
