@@ -66,8 +66,14 @@ export class UpdateprofileComponent implements OnInit {
     this.profile = client;
     console.log(this.profile);
 
+    if (this.profile.profileImageName == null) {
+      this.imgUrl = "/assets/images/upload.png";
+    }
 
-    this.imgUrl = baseurl + 'Images/Clients/' + this.profile.profileImageName;
+    else {
+      this.imgUrl = baseurl + 'Images/Clients/' + this.profile.profileImageName;
+    }
+
     console.log(this.imgUrl);
     this.createForm();
 
