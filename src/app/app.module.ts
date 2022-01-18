@@ -50,6 +50,8 @@ import { AlladsComponent } from './allads/allads.component';
 import { ApproveadsComponent } from './approveads/approveads.component';
 import { ApproveComponent } from './approve/approve.component';
 import { ExpiredadsComponent } from './expiredads/expiredads.component';
+import { ViewadComponent } from './viewad/viewad.component';
+import { AddadminComponent } from './addadmin/addadmin.component';
 
 export function tokenGetter() {
   return localStorage.getItem("access_token");
@@ -78,6 +80,8 @@ export function tokenGetter() {
     ApproveadsComponent,
     ApproveComponent,
     ExpiredadsComponent,
+    ViewadComponent,
+    AddadminComponent,
   ],
   imports: [
     BrowserModule,

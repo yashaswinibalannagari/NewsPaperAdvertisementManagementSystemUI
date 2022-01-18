@@ -1,0 +1,19 @@
+<div fxFlex fxLayoutAlign="center">
+
+    <div *ngIf="advertisement">
+
+        <h3>Advertisement Details</h3>
+        <img [src]="imgUrl" style="width:200px;height:200px">
+        <p>Advertisement Title: {{advertisement.advertisementTitle}}</p>
+        <p>Advertisement Type: {{advertisement.advertisementType}}</p>
+        <p>Advertisement Description: {{advertisement.advertisementDesc}}</p>
+        <p>Advertisement Reg Date: {{advertisement.advRegistrationDate}}</p>
+        <p>Subscription Plan: {{advertisement.subscriptionPlan}}</p>
+        <p>Advertisement Size: {{advertisement.advertisementSize}}</p>
+        <p>Subscriber:{{advertisement.subscriber}}</p>
+        <div *ngIf="advertisement.agree">
+            <p>Agree to Terms and Conditions : Agreed</p>
+        </div>
+
+    </div>
+</div>

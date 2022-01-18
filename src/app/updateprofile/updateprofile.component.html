@@ -10,7 +10,10 @@
 
     <div>
         <div fxFlexOffset="500px" class="form-size">
-            <p>{{ profileForm.value | json }} {{ profileForm.status | json }}</p>
+
+            <!-- 
+            <p>{{ profileForm.value | json }} {{ profileForm.status | json }}</p> -->
+
 
             <form novalidate [formGroup]="profileForm" #fform="ngForm" (ngSubmit)="onSubmit()">
                 <p>

@@ -29,8 +29,8 @@
                     </mat-card-content>
 
                     <mat-card-actions>
-                        <button mat-button class="edit">View</button>
-                        <button mat-button class="approve" (click)="ApproveAd(ad.advertisementId)">Approve</button>
+                        <button mat-button class="edit" [routerLink]="['/viewad',ad.advertisementId]">View</button>
+                        <button mat-button class=" approve" (click)="ApproveAd(ad.advertisementId)">Approve</button>
                         <button mat-button class="delete" (click)="openDeleteForm(ad.advertisementId)">DELETE</button>
                     </mat-card-actions>
 

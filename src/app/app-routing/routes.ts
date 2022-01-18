@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { AboutComponent } from '../about/about.component';
+import { AddadminComponent } from '../addadmin/addadmin.component';
 import { AdminComponent } from '../admin/admin.component';
 import { AlladsComponent } from '../allads/allads.component';
 import { ApproveadsComponent } from '../approveads/approveads.component';
@@ -18,6 +19,7 @@ import { MyadsComponent } from '../myads/myads.component';
 import { NewaddComponent } from '../newadd/newadd.component';
 import { TermsComponent } from '../terms/terms.component';
 import { UpdateprofileComponent } from '../updateprofile/updateprofile.component';
+import { ViewadComponent } from '../viewad/viewad.component';
 export const routes: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'login', component: LoginComponent },
@@ -33,6 +35,8 @@ export const routes: Routes = [
     { path: 'approveads', component: ApproveadsComponent },
     { path: 'updateprofile', component: UpdateprofileComponent },
     { path: 'expiredads', component: ExpiredadsComponent },
+    { path: 'viewad/:id', component: ViewadComponent },
+    { path: 'addadmin', component: AddadminComponent },
     { path: 'client', component: ClientComponent, canActivate: [AuthGuard] },
     { path: 'admin', component: AdminComponent, canActivate: [AuthGuard, RoleGuard] },
     { path: '', redirectTo: '/home', pathMatch: 'full' }

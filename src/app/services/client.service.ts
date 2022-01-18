@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable } from 'rxjs';
+import { Admin } from '../shared/admin';
 import { baseurl } from '../shared/baseurl';
 import { Client } from '../shared/client';
 import { ProcessHttpmsgService } from './process-httpmsg.service';
@@ -35,5 +36,10 @@ export class ClientService {
     return this.http.put<Client>(baseurl + 'Client/UpdateProfile', formData).
       pipe(catchError(this.processHTTPMsgService.handleError));
 
+  }
+
+
+  createAdmin(admin: Admin): Observable<any> {
+    return this.http.post<any>(baseurl + 'AdminSignUp', admin).pipe(catchError(this.processHTTPMsgService.handleError));
   }
 }

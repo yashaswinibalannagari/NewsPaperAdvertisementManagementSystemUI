@@ -1,0 +1,65 @@
+<div class="container" fxLayout="column" fxLayoutGap="10px">
+
+    <div fxFlex>
+        <div>
+            <h3 fxLayoutAlign="center">Create Your Advertisement</h3>
+            <hr>
+        </div>
+    </div>
+
+
+    <div>
+        <div fxFlexOffset="500px" class="form-size">
+
+
+            <!-- 
+            <p>{{ adminForm.value | json }} {{ adminForm.status | json }}</p> -->
+
+
+
+            <form novalidate [formGroup]="adminForm" #fform="ngForm" (ngSubmit)="onSubmit()">
+                <p>
+                    <mat-form-field class="half-width">
+                        <input matInput formControlName="firstName" placeholder="Title" type="text" required>
+                        <mat-error *ngIf="formErrors.firstname">{{formErrors.firstname}}</mat-error>
+                    </mat-form-field>
+                </p>
+                <p>
+                    <mat-form-field class="half-width">
+                        <input matInput formControlName="lastName" placeholder="lastname" type="text" required>
+                        <mat-error *ngIf="formErrors.lastname">{{formErrors.lastname}}</mat-error>
+                    </mat-form-field>
+                </p>
+
+                <p>
+                    <mat-form-field class="half-width">
+                        <input matInput formControlName="email" placeholder="Email" type="email" required>
+                        <mat-error *ngIf="formErrors.email">{{formErrors.email}}</mat-error>
+                    </mat-form-field>
+                </p>
+                <p>
+                    <mat-form-field class="half-width">
+                        <input matInput formControlName="password" placeholder="Password" type="password" required>
+                        <mat-error *ngIf="formErrors.password">{{formErrors.password}}</mat-error>
+                    </mat-form-field>
+                </p>
+
+                <p>
+                    <mat-form-field class="half-width">
+                        <input matInput formControlName="confirmPassword" placeholder="Confirm Password" type="password"
+                            required>
+                        <mat-error *ngIf="formErrors.confirmpassword">{{formErrors.confirmpassword}}</mat-error>
+                    </mat-form-field>
+                </p>
+
+
+
+
+
+                <button type=" submit" mat-button class="background-primary text-floral-white"
+                    [disabled]="adminForm.invalid">Submit</button>
+
+            </form>
+            &nbsp;&nbsp;&nbsp;
+        </div>
+    </div>

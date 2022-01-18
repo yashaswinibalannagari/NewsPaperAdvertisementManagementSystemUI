@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ClientService } from '../services/client.service';
 import { baseurl } from '../shared/baseurl';
 import { Client } from '../shared/client';
@@ -53,7 +54,7 @@ export class UpdateprofileComponent implements OnInit {
     }
   };
 
-  constructor(private fb: FormBuilder, private _clientService: ClientService) {
+  constructor(private fb: FormBuilder, private _clientService: ClientService, private _router: Router) {
 
   }
 
@@ -128,6 +129,10 @@ export class UpdateprofileComponent implements OnInit {
     console.log(this.profile);
 
     this.profileFormDirective.resetForm();
+
+    this._router.navigate(['/home']);
+
+
 
   }
 
