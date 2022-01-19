@@ -17,6 +17,7 @@ import { HomeComponent } from '../home/home.component';
 import { LoginComponent } from '../login/login.component';
 import { MyadsComponent } from '../myads/myads.component';
 import { NewaddComponent } from '../newadd/newadd.component';
+import { NotificationsComponent } from '../notifications/notifications.component';
 import { TermsComponent } from '../terms/terms.component';
 import { UpdateprofileComponent } from '../updateprofile/updateprofile.component';
 import { ViewadComponent } from '../viewad/viewad.component';
@@ -37,6 +38,7 @@ export const routes: Routes = [
     { path: 'expiredads', component: ExpiredadsComponent },
     { path: 'viewad/:id', component: ViewadComponent },
     { path: 'addadmin', component: AddadminComponent },
+    { path: 'notifications', component: NotificationsComponent },
     { path: 'client', component: ClientComponent, canActivate: [AuthGuard] },
     { path: 'admin', component: AdminComponent, canActivate: [AuthGuard, RoleGuard] },
     { path: '', redirectTo: '/home', pathMatch: 'full' }

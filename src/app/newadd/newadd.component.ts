@@ -136,7 +136,7 @@ export class NewaddComponent implements OnInit {
 
     console.log(this.fileToUpload);
 
-    this.advertisement.advRegistrationDate = formatDate(new Date(), 'dd/MM/yyyy', 'en-US');
+    this.advertisement.advRegisteredDate = formatDate(new Date(), 'dd/MM/yyyy', 'en-US');
 
 
 

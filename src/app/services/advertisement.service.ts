@@ -47,7 +47,7 @@ export class AdvertisementService {
     formData.append('subscriptionPlan', advertisement.subscriptionPlan);
     formData.append('subscriber', advertisement.subscriber);
     formData.append('advertisementSize', advertisement.advertisementSize);
-    formData.append('advRegisteredDate', advertisement.advRegistrationDate);
+    formData.append('advRegisteredDate', advertisement.advRegisteredDate);
     formData.append('agree', advertisement.agree.toString());
     formData.append('subscriptionDays', advertisement.subscriptionDays.toString());
 
@@ -96,6 +96,16 @@ export class AdvertisementService {
   deleteAdvertisementByAdmin(id: string): Observable<any> {
     return this.http.delete<any>(baseurl + 'Admin/DeleteAdvertisement/' + id)
       .pipe(catchError(error => this.processHTTPMsgService.handleError(error)));
+  }
+
+  deleteNotification(id: string): Observable<any> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      })
+    }
+    return this.http.put<any>(baseurl + 'Client/DeleteNotification/' + id, httpOptions)
+      .pipe(catchError(this.processHTTPMsgService.handleError));
   }
 
 

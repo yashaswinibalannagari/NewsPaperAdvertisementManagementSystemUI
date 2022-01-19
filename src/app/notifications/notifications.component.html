@@ -1,0 +1,29 @@
+<div class="container" fxLayout="column" fxLayoutGap="10px">
+
+    <div fxFlex>
+        <div>
+            <h3 fxLayoutAlign="center">Your Notifications</h3>
+            <hr>
+        </div>
+    </div>
+
+
+    <div class="content">
+        <div fxLayout="row wrap" fxLayoutGap="16px grid">
+            <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let ad of advertisements">
+                <mat-card class="mat-elevation-z4" *ngIf="ad.notifications">
+
+                    <mat-card-content>
+                        <p>Your advertisement {{ad.advertisementTitle}} has been approved by agency and it is live now
+                        </p>
+                        <p>Thankyou for advertising with us.</p>
+                    </mat-card-content>
+
+                    <mat-card-actions>
+                        <button mat-button class="blue" (click)="deleteNotification(ad.advertisementId)">Ok</button>
+                    </mat-card-actions>
+
+                </mat-card>
+            </div>
+        </div>
+    </div>

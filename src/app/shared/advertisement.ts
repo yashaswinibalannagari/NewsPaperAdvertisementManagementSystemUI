@@ -6,13 +6,16 @@ export class Advertisement {
     advertisementType: string;
     advertisementDesc: string;
     advertisementImageName: string;
-    advRegistrationDate: any;
+    advRegisteredDate: any;
     advertisementImageFile: any;
     subscriptionPlan: string;
     advertisementSize: string;
     subscriber: string;
     agree: Boolean;
     subscriptionDays: number;
+    adminApproved: Boolean;
+    advPublishedDate: any;
+    notifications: Boolean;
 }
 
 

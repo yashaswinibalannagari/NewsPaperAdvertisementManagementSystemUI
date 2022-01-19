@@ -52,6 +52,8 @@ import { ApproveComponent } from './approve/approve.component';
 import { ExpiredadsComponent } from './expiredads/expiredads.component';
 import { ViewadComponent } from './viewad/viewad.component';
 import { AddadminComponent } from './addadmin/addadmin.component';
+import { ClientService } from './services/client.service';
+import { NotificationsComponent } from './notifications/notifications.component';
 
 export function tokenGetter() {
   return localStorage.getItem("access_token");
@@ -82,6 +84,7 @@ export function tokenGetter() {
     ExpiredadsComponent,
     ViewadComponent,
     AddadminComponent,
+    NotificationsComponent,
   ],
   imports: [
     BrowserModule,
@@ -118,7 +121,8 @@ export function tokenGetter() {
     { provide: HTTP_INTERCEPTORS, useClass: AuthinterceptorService, multi: true },
     ProcessHttpmsgService,
     LoginService,
-    AdvertisementService
+    AdvertisementService,
+    ClientService,
 
   ],
   entryComponents: [

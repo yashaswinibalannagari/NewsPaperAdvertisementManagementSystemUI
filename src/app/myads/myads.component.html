@@ -18,6 +18,10 @@
                         <mat-card-title>
                             <h1>{{ad.advertisementTitle | uppercase}}</h1>
                             <h3>{{ad.advertisementType | lowercase}}</h3>
+                            <div *ngIf="ad.adminApproved">
+                                <img src="/assets/images/approve.jpg" width="25px" height="25px"
+                                    alt="{{ad.advertisementTitle}}">
+                            </div>
                         </mat-card-title>
                     </mat-card-header>
                     <img fxLayoutAlign="center" mat-card-image

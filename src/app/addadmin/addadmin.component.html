@@ -20,14 +20,14 @@
             <form novalidate [formGroup]="adminForm" #fform="ngForm" (ngSubmit)="onSubmit()">
                 <p>
                     <mat-form-field class="half-width">
-                        <input matInput formControlName="firstName" placeholder="Title" type="text" required>
-                        <mat-error *ngIf="formErrors.firstname">{{formErrors.firstname}}</mat-error>
+                        <input matInput formControlName="firstName" placeholder="FirstName" type="text" required>
+                        <mat-error *ngIf="formErrors.firstName">{{formErrors.firstName}}</mat-error>
                     </mat-form-field>
                 </p>
                 <p>
                     <mat-form-field class="half-width">
                         <input matInput formControlName="lastName" placeholder="lastname" type="text" required>
-                        <mat-error *ngIf="formErrors.lastname">{{formErrors.lastname}}</mat-error>
+                        <mat-error *ngIf="formErrors.lastName">{{formErrors.lastName}}</mat-error>
                     </mat-form-field>
                 </p>
 
@@ -48,7 +48,7 @@
                     <mat-form-field class="half-width">
                         <input matInput formControlName="confirmPassword" placeholder="Confirm Password" type="password"
                             required>
-                        <mat-error *ngIf="formErrors.confirmpassword">{{formErrors.confirmpassword}}</mat-error>
+                        <mat-error *ngIf="formErrors.confirmPassword">{{formErrors.confirmPassword}}</mat-error>
                     </mat-form-field>
                 </p>
 

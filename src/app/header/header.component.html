@@ -23,6 +23,10 @@
         </a> -->
         <a mat-button routerLink="/updateprofile"><span class="fa fa-user fa-lg"></span> UpdateProfile</a>
 
+        <a mat-button routerLink="/notifications">
+            <mat-icon>drafts</mat-icon>Notifications
+        </a>
+
     </div>
     <div *ngIf="_loginService.loggedIn() &&_loginService.isAdmin()">
 
