@@ -40,6 +40,13 @@
 
                 </mat-form-field>
 
+                <mat-form-field width="100%">
+                    <input matInput placeholder="SecurityQuestion? BirthPlace" type="text"
+                        [(ngModel)]="register.securityQuestion" name="securityQuestion" #securityQuestion="ngModel"
+                        required />
+                    <mat-error *ngIf="securityQuestion.errors?.['required']">security Question is required </mat-error>
+                </mat-form-field>
+
                 <!-- <mat-checkbox [(ngModel)]="user.remember" name="remember">Remember Me</mat-checkbox> -->
             </p>
         </mat-dialog-content>

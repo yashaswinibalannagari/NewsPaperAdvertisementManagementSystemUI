@@ -24,7 +24,7 @@ export class HeaderComponent implements OnInit {
 
 
   openSignupForm() {
-    this.dialog.open(RegisterComponent, { width: '500px', height: '570px' });
+    this.dialog.open(RegisterComponent, { width: '500px', height: '580px' });
   }
   // Logout() {
   //   this.loginService.logout();

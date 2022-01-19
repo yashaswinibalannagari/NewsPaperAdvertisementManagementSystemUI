@@ -54,6 +54,9 @@ import { ViewadComponent } from './viewad/viewad.component';
 import { AddadminComponent } from './addadmin/addadmin.component';
 import { ClientService } from './services/client.service';
 import { NotificationsComponent } from './notifications/notifications.component';
+import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
+import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
+
 
 export function tokenGetter() {
   return localStorage.getItem("access_token");
@@ -85,6 +88,8 @@ export function tokenGetter() {
     ViewadComponent,
     AddadminComponent,
     NotificationsComponent,
+    ForgotpasswordComponent,
+    ResetpasswordComponent,
   ],
   imports: [
     BrowserModule,
@@ -130,7 +135,9 @@ export function tokenGetter() {
     LoginComponent,
     RegisterComponent,
     DeleteComponent,
-    ApproveComponent
+    ApproveComponent,
+    ForgotpasswordComponent,
+    ResetpasswordComponent,
   ],
   bootstrap: [AppComponent]
 })

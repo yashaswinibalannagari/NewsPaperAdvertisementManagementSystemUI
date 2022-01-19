@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { LoginService } from '../services/login.service';
 import { User } from '../shared/User';
 import { Router } from '@angular/router';
+import { ForgotpasswordComponent } from '../forgotpassword/forgotpassword.component';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit {
   user: User = { email: '', password: '' };
   errMsg: string;
   invalid: boolean;
-  constructor(public dialogRef: MatDialogRef<LoginComponent>, private loginService: LoginService, private _router: Router) { }
+  constructor(public dialog: MatDialog, public dialogRef: MatDialogRef<LoginComponent>, private loginService: LoginService, private _router: Router) { }
 
   ngOnInit(): void {
   }
@@ -36,6 +37,12 @@ export class LoginComponent implements OnInit {
 
   seterrMsg(bool: boolean) {
     this.invalid = bool;
+  }
+
+  forgot() {
+    this.dialogRef.close();
+    this._router.navigate(['/home']);
+    this.dialog.open(ForgotpasswordComponent, { width: '500px', height: '450px' });
   }
 
 

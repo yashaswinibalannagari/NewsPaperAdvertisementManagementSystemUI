@@ -15,7 +15,8 @@ export class RegisterComponent implements OnInit {
     lastname: '',
     email: '',
     password: '',
-    confirmpassword: ''
+    confirmpassword: '',
+    securityQuestion: ''
   };
   successRegistration: boolean;
 

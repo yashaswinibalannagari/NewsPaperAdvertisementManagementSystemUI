@@ -9,6 +9,8 @@ import { Token } from '../shared/token';
 import { Router } from '@angular/router';
 import { Register } from '../shared/register';
 import { getRtlScrollAxisType } from '@angular/cdk/platform';
+import { ForgotPassword } from '../shared/forgotpassword';
+import { ResetPassword } from '../shared/resetpassword';
 @Injectable({
   providedIn: 'root'
 })
@@ -48,6 +50,31 @@ export class LoginService {
 
   }
 
+  forgotPassword(forgot: ForgotPassword): Observable<any> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      })
+    }
+    return this.http.post<boolean>(baseurl + 'ForgotPassword', forgot, httpOptions)
+      .pipe(catchError(this.processHTTPMsgService.handleError));
+
+  }
+
+
+
+  resetPassword(reset: ResetPassword): Observable<any> {
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      })
+    }
+    return this.http.post<boolean>(baseurl + 'ResetPassword', reset, httpOptions)
+      .pipe(catchError(this.processHTTPMsgService.handleError));
+
+  }
+
   isAdmin(): boolean {
     return (localStorage.getItem('role') == 'Admin');
   }
@@ -65,6 +92,8 @@ export class LoginService {
   loggedIn(): boolean {
     return (localStorage.getItem('access_token') !== null);
   }
+
+
 
 
 }
