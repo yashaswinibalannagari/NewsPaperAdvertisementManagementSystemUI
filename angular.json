@@ -72,7 +72,8 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "NewsPaperAdvertisementManagementSystemUI:build:production"
+              "browserTarget": "NewsPaperAdvertisementManagementSystemUI:build:production",
+              "disableHostCheck": true
             },
             "development": {
               "browserTarget": "NewsPaperAdvertisementManagementSystemUI:build:development"
@@ -101,7 +102,6 @@
             "styles": [
               "src/styles.scss"
             ],
-            
             "scripts": []
           }
         }

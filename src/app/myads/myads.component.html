@@ -24,9 +24,8 @@
                             </div>
                         </mat-card-title>
                     </mat-card-header>
-                    <img fxLayoutAlign="center" mat-card-image
-                        [src]="baseurl+'Images/Advertisements/'+ad.advertisementImageName" alt={{ad.advertisementTitle}}
-                        class="matcardimage">
+                    <img fxLayoutAlign="center" mat-card-image [src]="baseurl+'wwwroot/'+ad.advertisementImageName"
+                        alt={{ad.advertisementTitle}} class="matcardimage">
                     <mat-card-content>
                         <p>{{ ad.advertisementDesc | slice:0:200 }}...
                         </p>

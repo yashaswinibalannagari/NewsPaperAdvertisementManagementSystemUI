@@ -71,7 +71,7 @@ export class UpdateprofileComponent implements OnInit {
     }
 
     else {
-      this.imgUrl = baseurl + 'Images/Clients/' + this.profile.profileImageName;
+      this.imgUrl = baseurl + 'wwwroot/' + this.profile.profileImageName;
     }
 
     console.log(this.imgUrl);

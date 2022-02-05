@@ -37,7 +37,7 @@ export class ViewadComponent implements OnInit {
     this.advertisements = advertisements;
     this.advertisement = this.advertisements.find(a => a.advertisementId == this.id);
     console.log(this.advertisement);
-    this.imgUrl = baseurl + 'Images/Advertisements/' + this.advertisement.advertisementImageName;
+    this.imgUrl = baseurl + 'wwwroot/' + this.advertisement.advertisementImageName;
     console.log(this.imgUrl);
 
   }

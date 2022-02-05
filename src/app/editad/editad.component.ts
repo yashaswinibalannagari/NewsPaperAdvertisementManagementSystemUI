@@ -70,7 +70,7 @@ export class EditadComponent implements OnInit {
   setAdvertisements(advertisements: any): void {
     this.advertisements = advertisements;
     this.advertisement = this.advertisements.find(a => a.advertisementId == this.id);
-    this.imgUrl = baseurl + 'Images/Advertisements/' + this.advertisement.advertisementImageName;
+    this.imgUrl = baseurl + 'wwwroot/' + this.advertisement.advertisementImageName;
 
     this.createForm();
   }
