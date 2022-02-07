@@ -1,1 +1,1 @@
-export const baseurl = 'https://newsagencyapi.azurewebsites.net/';
+export const baseurl = 'https://newsadvapi.azurewebsites.net/';
