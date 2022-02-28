@@ -2,3 +2,7 @@ C:\Users\AGUNUKUL\AppData\Roaming\npm\ng new MyApp
 C:\Users\AGUNUKUL\AppData\Roaming\npm\ng serve -o
 C:\Users\AGUNUKUL\AppData\Roaming\npm\ng g c Home
 ng generate module app-routing
+
+az group create --name rg-nams --location "central us"   
+az appservice plan create --name ASP-rgnams-ad84 --resource-group rg-nams --sku FREE     
+az deployment group create --resource-group rg-nams  --template-file "template.json"
